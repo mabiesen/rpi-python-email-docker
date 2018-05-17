@@ -16,3 +16,4 @@ TODO
 1. Better server
 2. Store emails for review
 3. Proper logging and error handling checks
+4. Proper install checks, requirements.py
