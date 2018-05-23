@@ -7,8 +7,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN pip install flask
-RUN pip install flask_httpauth
+RUN pip install -r requirements.txt 
 
 
 EXPOSE 5000
