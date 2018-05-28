@@ -6,7 +6,7 @@ https://robots.thoughtbot.com/how-to-manage-your-python-projects-with-pipenv
 
 run with  
 ```
-sudo docker run -p 5000:5000 -it python_rpi_email
+sudo docker run -p 3000:3000 -it python_rpi_email
 ```
 
 

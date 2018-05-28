@@ -32,4 +32,4 @@ def create_task():
     return jsonify({'task': 'succeeded!'}), 201
 
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True)
+    app.run(debug=True, threaded=True, port=3000)
