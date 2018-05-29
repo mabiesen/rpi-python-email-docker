@@ -13,6 +13,7 @@ app = Flask(__name__)
 def get_password(username):
     if username == 'miguel':
         return 'python'
+    print("here")
     return None
 
 @auth.error_handler
