@@ -11,10 +11,13 @@ app = Flask(__name__)
 def create_task():
     print(request.json['recipient'])
     print("here3")
-    emailc = myemail()
-    emailc.send_email(request.json['recipient'])
-    myreturn = jsonify({'task': 'succeeded!'}), 201 
-    return myreturn
+    try:
+        emailc = myemail()
+        emailc.send_email(request.json['recipient'])
+        myreturn = jsonify({'task': 'succeeded!'}), 201 
+        return myreturn
+    except:
+	return jsonify({'task': 'fail'}),201
 
 
 if __name__ == '__main__':
