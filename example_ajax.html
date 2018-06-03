@@ -1,0 +1,94 @@
+      <div class="emailform">
+        <div class="form-wrapper">
+      
+	<form>
+            <table>
+              <tr>
+                <td>
+                  Firstname:
+                 </td>
+                 <td>
+                 <input 
+                        id="fname"
+                        type="text"
+                        name="fname"/>
+                 </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Lastname:
+                 </td>
+                 <td>
+                 <input 
+                        id="lname"
+                        type="text"
+                        name="lname"/>
+                 </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Your Email Address:
+                 </td>
+                 <td>
+                 <input 
+			id="senderAddr"
+			type="text"
+                        name="senderAddr"/>
+                 </td>
+              </tr>
+              <tr>
+                <td>
+                  Email Subject:
+                </td>
+                <td>
+                  <input 
+			  id="emailSubject"
+			  type="text"
+                          name="emailSubject"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Message:
+                </td>
+                <td>
+                  <textarea
+			id="emailMessage"
+                        name="emailMessage"></textarea>
+                </td>
+              </tr>
+            </table>
+
+              <button type="button" onclick="postAjax()">Submit</button>
+	</form>
+        </div>
+      </div>
+
+<script>
+function postAjax() {
+
+
+    var url = "http://localhost:3000/email";
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var recipient = document.getElementById("senderAddr").value;
+    var title = document.getElementById("emailSubject").value;
+    var message = document.getElementById("emailMessage").value;
+    $.ajax({
+    	url: url, 
+    	type: "POST",
+	contentType: "application/json; charset=utf-8",
+    	data: JSON.stringify({'recipient': recipient,
+			      'title': title,
+			      'message': message,
+			      'fname': fname,
+			      'lname': lname,}),
+    	success: function( data ) { 
+        	alert( "success" + data );
+    	}   
+    });
+
+}
+</script>

@@ -8,12 +8,29 @@ app = Flask(__name__)
 
 @app.route("/email", methods=['POST','GET','OPTIONS'])
 @crossdomain(origin=['*'],headers=['Content-Type'],methods=["GET","POST","OPTIONS"])
-def create_task():
+def handle_request():
     print(request.json['recipient'])
     print("here3")
     try:
         emailc = myemail()
-        emailc.send_email(request.json['recipient'])
+	recipient = request.json['recipient']
+	try:
+            msg = request.json['message']
+	except:
+	    msg = "empty message"
+        try:
+	    title = request.json['title']
+	except:
+	    title = "empty title"
+	try:
+	    fname = request.json['fname']
+	except:
+	    fname = "no name"
+	try:
+	    lname = request.json['lname']
+	except:
+	    lname = "no name"
+        emailc.send_email(recipient,msg,title,fname,lname,True)
         myreturn = jsonify({'task': 'succeeded!'}), 201 
         return myreturn
     except:
