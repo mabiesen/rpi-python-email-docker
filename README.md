@@ -1,3 +1,6 @@
+
+NOTE: ABANDONED.  New script uses NGINX server
+
 https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 
 https://blog.miguelgrinberg.com/post/using-celery-with-flask
